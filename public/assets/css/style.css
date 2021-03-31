@@ -1,0 +1,7 @@
+:not(.layout-fixed) .main-sidebar {
+    height: 100vh;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    overflow-x: hidden !important;
+}
