@@ -97,7 +97,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/insrciptions') }}" class="nav-link @if(Request::is('insrciptions*')) active @endif">
+            <a href="{{ url('admin/users') }}" class="nav-link @if(Request::is('admin/users*')) active @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Gérer les insrciptions

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormateurController;
+use App\Http\Controllers\StagiaireController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SectionController;
 
 /*
@@ -19,7 +22,13 @@ Route::get('/', function () {
 });
 Route::prefix('admin')->group(function () {
     Route::resource('sections', SectionController::class);
+    Route::get('user/{id}/approuver', [UserController::class, 'approuver']);
+    Route::get('users', [UserController::class, 'index']);
+    Route::delete('user/{id}', [UserController::class, 'destroy']);
 });
+
+Route::post('formateur', [FormateurController::class, 'store']);
+Route::post('stagiaire', [StagiaireController::class, 'store']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

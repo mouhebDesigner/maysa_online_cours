@@ -5,3 +5,12 @@
     top: 0;
     overflow-x: hidden !important;
 }
+
+.btn-hidden{
+    border: none !important;
+    background-color: transparent !important;
+}
+.btn-hidden .fa{
+    color: tomato;
+    transform: scale(1.8);
+}
