@@ -20,6 +20,7 @@ class FormateurController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->numtel = $request->numtel;
+        $user->grade = "formateur";
         $user->date_naissance = $request->date_naissance;
 
         $user->save();

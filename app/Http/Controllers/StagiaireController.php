@@ -18,6 +18,7 @@ class StagiaireController extends Controller
         $stagiaire->email = $request->email;
         $stagiaire->password = Hash::make($request->password);
         $stagiaire->numtel = $request->numtel;
+        $user->grade = "stagiaire";
         $stagiaire->date_naissance = $request->date_naissance;
 
         $stagiaire->save();
