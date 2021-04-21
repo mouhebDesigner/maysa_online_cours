@@ -1,69 +1,72 @@
 @extends('layouts.master')
 
-@section('title', 'Page d\'acceuil')
+@section('includes')
+    @include('includes.header')
+@endsection
 
 @section('content')
-    @include('includes.header')
-    <section class="register-section pt-100 pb-100 loaded">
+    <div class="rs-login pt-100 pb-100 md-pt-70 md-pb-70">
         <div class="container">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button 
-                            class="nav-link active" 
-                            id="home-tab" 
-                            data-bs-toggle="tab" 
-                            data-bs-target="#home" 
-                            type="button" 
-                            role="tab" 
-                            aria-controls="home" 
-                            aria-selected="true">
-                            Formateur
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button 
-                            class="nav-link" 
-                            id="profile-tab" 
-                            data-bs-toggle="tab" 
-                            data-bs-target="#profile" 
-                            type="button" role="tab" 
-                            aria-controls="profile" 
-                            aria-selected="false">
-                            Stagiaire
-                        </button>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show  @if(!isset($second)) active @endif" id="home" role="tabpanel" aria-labelledby="home-tab">
-                         
-                        <div class="register-box">
-                    
-                            <div class="sec-title text-center mb-30">
-                                <h2 class="title mb-10">Créer un nouveau compte formateur</h2>
+            <div class="noticed">
+                <div class="main-part">                           
+                    <div class="method-account">
+                        <h2 class="login">{{ __('S\'inscrire') }}</h2>
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
+                            <input id="nom" type="text" class="" name="nom" value="{{ old('nom') }}" placeholder="{{ __('Saisir votre nom') }}" required autocomplete="nom" autofocus>
+                            @error('nom')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            <input id="prenom" type="text" class="" name="prenom" value="{{ old('prenom') }}" placeholder="{{ __('Saisir votre prenom') }}" required autocomplete="prenom" autofocus>
+                            @error('prenom')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            <input id="numtel" type="numeric" class="" name="numtel" value="{{ old('email') }}" placeholder="{{ __('Saisir votre numéro de téléphone') }}" required autocomplete="email">
+                            @error('numtel')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            <input id="date_naissance" type="text" onclick="this.type = 'date'" class="" name="date_naissance"  value="{{ old('email') }}" placeholder="{{ __('Saisir votre date de naissance') }}" required autocomplete="email">
+
+                            @error('date_naissance')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+
+                            <input type="email" name="email" placeholder="{{ __('Saisir votre email') }}" required="">
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            <input type="password" name="password" placeholder="{{ __('Saisir votre mot de passe') }}" required="">
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            <input id="password-confirm" type="password" class="" name="password_confirmation" placeholder="{{ __('Confirmer votre mot de passe') }}" required autocomplete="new-password">
+
+                            <button type="submit" class="readon submit-btn">{{ __('Enregistrer') }}</button>
+                            <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+
                             </div>
-                        
-                            <!-- Login Form -->
-                            
-                            @include('includes.formateur_forms')
-                           
-                            
-                        </div>
-                    </div>
-                    <div class="tab-pane @if(isset($second)) active show @else fade @endif" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="register-box">
-                        
-                            <div class="sec-title text-center mb-30">
-                                <h2 class="title mb-10">Créer un nouveau compte stagiaire </h2>
                             </div>
-                        
-                            <!-- Login Form -->
-                           @include('includes.stagiaire_forms')
-                            
-                        </div>
+                            <div class="last-password">
+                                <p>{{ __('J\'ai déjà un compte?') }} <a href="{{ url('register') }}">{{ __('Se connecter') }}</a></p>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            
+            </div>
         </div>
-    </section>
-    @include('includes.footer')
+    </div>
 @endsection
+

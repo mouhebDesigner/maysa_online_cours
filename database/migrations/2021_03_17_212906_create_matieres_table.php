@@ -17,7 +17,7 @@ class CreateMatieresTable extends Migration
             $table->id();
             $table->string('titre');
             $table->foreignId('formateur_id')->constrained('formateurs')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('section_id')->constrained('sections')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('diplome_id')->constrained('diplomes')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

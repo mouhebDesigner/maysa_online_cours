@@ -31,6 +31,6 @@ class FormateurController extends Controller
 
         $formateur->save();
         
-        return redirect('/')->with('signed', 'Votre compte a été créé avec succés');
+        return redirect()->back()->with('signed', 'Votre compte a été créé avec succés');
     }
 }

@@ -14,7 +14,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Liste de sections</h1>
+                            <h1 class="m-0">Liste des évènements</h1>
                         </div><!-- /.col -->
                        
                     </div>
@@ -22,6 +22,7 @@
             </div>
             <div class="content">
                 <div class="container-fluid">
+                    @include('admin.includes.error-message')
                     <div class="row">
                         <div class="col-12">
                             
@@ -45,8 +46,10 @@
                                                         aria-controls="example1">
                                                     </label>
                                                 </div>
-                                                <a href="{{ url('admin/sections/create') }}">
-                                                    <i class="fa fa-plus"></i>
+                                                <a href="{{ url('admin/events/create') }}">
+                                                    <button class="btn-icon">
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
                                                 </a>
                                             </div>
                                         </div>
@@ -61,22 +64,42 @@
                                                         </th>
                                                         
                                                         <th>
+                                                            date
+                                                        </th>
+                                                        <th>
                                                             date de creation
                                                         </th>
                                                         
                                                         <th>
                                                             date de modification
                                                         </th>
-
+                                                        <th>
+                                                            Actions
+                                                        </th>
                                                     </tr>
 
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($sections as $section)
+                                                    @foreach($events as $event)
                                                         <tr>
-                                                            <td>{{ $section->titre }}</td>
-                                                            <td>{{ $section->created_at }}</td>
-                                                            <td>{{ $section->updated_at }}</td>
+                                                            <td>{{ $event->titre }}</td>
+                                                            <td>{{ $event->date }}</td>
+                                                            <td>{{ $event->created_at }}</td>
+                                                            <td>{{ $event->updated_at }}</td>
+                                                            <td>
+                                                                <div class="d-flex justify-content-around">
+                                                                    <form action="{{ url('admin/events/'.$event->id) }}">
+                                                                        @csrf
+                                                                        @method('delete')
+                                                                        <button type="submit" class="btn-delete" onclick="return confirm('Voules-vous supprimer cet évènement')">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                    <a href="{{ url('admin/events/'.$event->id.'/edit') }}" onclick="return confirm('Voules-vous modifier cet évènement')">
+                                                                        <i class="fa fa-edit"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
@@ -85,6 +108,9 @@
                                                         <th>
                                                             titre
                                                         </th>
+                                                        <th>
+                                                            date
+                                                        </th>
                                                         
                                                         <th>
                                                             date de creation
@@ -92,6 +118,9 @@
                                                         
                                                         <th>
                                                             date de modification
+                                                        </th>
+                                                        <th>
+                                                            Actions
                                                         </th>
 
                                                     </tr>
@@ -113,5 +142,16 @@
 @endsection
 
 @section('script')
-    
+    <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 @endsection

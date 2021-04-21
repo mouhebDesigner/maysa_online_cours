@@ -51,15 +51,38 @@
               </a>
             </li>
           <li class="nav-item">
-            <a href="{{ url('admin/sections') }}" class="nav-link @if(Request::is('admin/sections*')) active @endif">
+            <a href="{{ url('admin/formateurs') }}" class="nav-link @if(Request::is('admin/formateurs*')) active @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Gérer les sections
+                Gérer les formateurs
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
           </li>
-          
+          <li class="nav-item">
+            <a href="{{ url('admin/diplomes') }}" class="nav-link @if(Request::is('admin/diplomes*')) active @endif">
+              <i class="fas fa-twitter"></i>
+              <p>
+                Gérer les diplômes
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('admin/events') }}" class="nav-link @if(Request::is('admin/events*')) active @endif">
+              <i class="fas fa-twitter"></i>
+              <p>
+                Gérer les évènements
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('admin/cours') }}" class="nav-link @if(Request::is('admin/cours*')) active @endif">
+              <i class="fas fa-twitter"></i>
+              <p>
+                Gérer les cours
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="{{ url('admin/matieres') }}" class="nav-link @if(Request::is('matieres*')) active @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -78,15 +101,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{ url('admin/formateurs') }}" class="nav-link @if(Request::is('formateurs*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Gérer les formateurs
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-          </li>
+          
           <li class="nav-item">
             <a href="{{ url('admin/stagiaires') }}" class="nav-link @if(Request::is('stagiaires*')) active @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>

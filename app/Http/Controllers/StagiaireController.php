@@ -23,6 +23,6 @@ class StagiaireController extends Controller
         $stagiaire->save();
 
 
-        return redirect('/')->with('signed', 'Votre compte a été créé avec succés');
+        return redirect()->back()->with('signed', 'Votre compte a été créé avec succés');
     }
 }

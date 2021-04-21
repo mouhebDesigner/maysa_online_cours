@@ -14,7 +14,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Liste de sections</h1>
+                            <h1 class="m-0">Liste de diplomes</h1>
                         </div><!-- /.col -->
                        
                     </div>
@@ -22,6 +22,7 @@
             </div>
             <div class="content">
                 <div class="container-fluid">
+                    @include('admin.includes.error-message')
                     <div class="row">
                         <div class="col-12">
                             
@@ -45,8 +46,10 @@
                                                         aria-controls="example1">
                                                     </label>
                                                 </div>
-                                                <a href="{{ url('admin/sections/create') }}">
-                                                    <i class="fa fa-plus"></i>
+                                                <a href="{{ url('admin/diplomes/create') }}">
+                                                    <button class="btn-icon">
+                                                        <i class="fa fa-plus"></i>
+                                                    </button>
                                                 </a>
                                             </div>
                                         </div>
@@ -67,16 +70,32 @@
                                                         <th>
                                                             date de modification
                                                         </th>
-
+                                                        <th>
+                                                            Actions
+                                                        </th>
                                                     </tr>
 
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($sections as $section)
+                                                    @foreach($diplomes as $diplome)
                                                         <tr>
-                                                            <td>{{ $section->titre }}</td>
-                                                            <td>{{ $section->created_at }}</td>
-                                                            <td>{{ $section->updated_at }}</td>
+                                                            <td>{{ $diplome->titre }}</td>
+                                                            <td>{{ $diplome->created_at }}</td>
+                                                            <td>{{ $diplome->updated_at }}</td>
+                                                            <td>
+                                                                <div class="d-flex justify-content-around">
+                                                                    <form action="{{ url('admin/diplomes/'.$diplome->id) }}">
+                                                                        @csrf
+                                                                        @method('delete')
+                                                                        <button type="submit" class="btn-delete" onclick="return confirm('Voules-vous supprimer ce diplôme')">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                    <a href="{{ url('admin/diplomes/'.$diplome->id.'/edit') }}" onclick="return confirm('Voules-vous modifier ce diplôme')">
+                                                                        <i class="fa fa-edit"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
@@ -92,6 +111,9 @@
                                                         
                                                         <th>
                                                             date de modification
+                                                        </th>
+                                                        <th>
+                                                            Actions
                                                         </th>
 
                                                     </tr>

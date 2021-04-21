@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->enum('grade', ['admin', 'formateur', 'stagiaire', 'eleve']);
             $table->biginteger('numtel');
             $table->date('date_naissance');
+            $table->string('photo')->nullable();
             $table->boolean('approuver')->nullable();
             $table->rememberToken();
             $table->timestamps();
