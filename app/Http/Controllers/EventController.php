@@ -7,14 +7,17 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    public function __construct(){
-        return $this->middleware('auth');
+  
+
+
+    public function index(){
+        $events = Event::paginate(10);
+
+        return view('events.index', compact('events'));
     }
-
-
+    
     public function show($id){
         $event = Event::find($id);
-
         return view('events.show', compact('event'));
     }
 }

@@ -23,7 +23,7 @@
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
             <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
+              <i class="nav-icon fas fa-search fa-fw"></i>
             </button>
           </div>
         </div><div class="sidebar-search-results"><div class="list-group"><a href="#" class="list-group-item">
@@ -38,161 +38,143 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            @if(Auth::user()->grade == 'admin')
+            <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+              <li class="nav-item">
+                <a href="{{ url('home') }}" class="nav-link @if(Request::is('home')) active @endif">
+                  <i class="nav-icon fas fa-home"></i>
+                  <p>
+                    Acceuil
+                    
+                  </p>
+                </a>
+              </li>
             <li class="nav-item">
-              <a href="{{ url('home') }}" class="nav-link @if(Request::is('home')) active @endif">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+              <a href="{{ url('admin/formateurs') }}" class="nav-link @if(Request::is('admin/formateurs*')) active @endif">
+                <i class="nav-icon fas fa-chalkboard-teacher"></i>
                 <p>
-                  Acceuil
-                  <i class="right fas fa-angle-left"></i>
+                  Gérer les formateurs
+                  
                 </p>
               </a>
             </li>
-          <li class="nav-item">
-            <a href="{{ url('admin/formateurs') }}" class="nav-link @if(Request::is('admin/formateurs*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Gérer les formateurs
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url('admin/diplomes') }}" class="nav-link @if(Request::is('admin/diplomes*')) active @endif">
-              <i class="fas fa-twitter"></i>
-              <p>
-                Gérer les diplômes
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url('admin/events') }}" class="nav-link @if(Request::is('admin/events*')) active @endif">
-              <i class="fas fa-twitter"></i>
-              <p>
-                Gérer les évènements
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url('admin/cours') }}" class="nav-link @if(Request::is('admin/cours*')) active @endif">
-              <i class="fas fa-twitter"></i>
-              <p>
-                Gérer les cours
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url('admin/matieres') }}" class="nav-link @if(Request::is('matieres*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Gérer les matiéres
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url('admin/examens') }}" class="nav-link @if(Request::is('examens*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Gérer les examens
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a href="{{ url('admin/stagiaires') }}" class="nav-link @if(Request::is('stagiaires*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Gérer les stagiaires
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url('admin/users') }}" class="nav-link @if(Request::is('admin/users*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Gérer les insrciptions
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url('admin/abscences') }}" class="nav-link @if(Request::is('abscences*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Gérer les abscences
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url('admin/emplois') }}" class="nav-link @if(Request::is('emplois*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Gérer les emplois
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url('admin/contacts') }}" class="nav-link @if(Request::is('contacts*')) active @endif">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Gérer les contacts
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-          </li>
-            <!-- <ul class="nav nav-treeview" style="display: none;">
+            <li class="nav-item">
+              <a href="{{ url('admin/stagiaires') }}" class="nav-link @if(Request::is('admin/stagiaires*')) active @endif">
+                <i class="nav-icon fas fa-user-graduate"></i>
+                <p>
+                  Gérer les stagiaires
+                  
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url('admin/users') }}" class="nav-link @if(Request::is('admin/users*')) active @endif">
+                <i class="nav-icon fas fa-registered"></i>
+                <p>
+                  Gérer les insrciptions
+                  
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url('admin/diplomes') }}" class="nav-link @if(Request::is('admin/diplomes*')) active @endif">
+                <i class="nav-icon fas fa-certificate"></i>
+                <p>
+                  Gérer les diplômes
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url('admin/classes') }}" class="nav-link @if(Request::is('admin/classes*')) active @endif">
+                <i class="nav-icon fas fa-certificate"></i>
+                <p>
+                  Gérer les classes
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url('admin/events') }}" class="nav-link @if(Request::is('admin/events*')) active @endif">
+                <i class="nav-icon fas fa-calendar-week"></i>
+                <p>
+                  Gérer les évènements
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url('admin/cours') }}" class="nav-link @if(Request::is('admin/cour*')) active @endif">
+                <i class="nav-icon fas fa-file-alt"></i>
+                <p>
+                  Gérer les cours
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url('admin/matieres') }}" class="nav-link @if(Request::is('admin/matieres*')) active @endif">
+
+                <i class="nav-icon fas fa-file-alt"></i>
+
+                <p>
+                  Gérer les matiéres
+                </p>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a href="{{ url('admin/seances') }}" class="nav-link @if(Request::is('admin/seances*')) active @endif">
+                <i class="nav-icon fas fa-table"></i>
+                <p>
+                  Gérer les séances
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{ url('admin/abscences') }}" class="nav-link @if(Request::is('admin/abscences*')) active @endif">
+                <i class="nav-icon fas fa-clipboard-list"></i>
+                <p>
+                  Gérer les abscences
+                  
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url('admin/contacts') }}" class="nav-link @if(Request::is('contacts*')) active @endif">
+                <i class="nav-icon fas fa-envelope-open-text"></i>
+                <p>
+                  Gérer les contacts
+                  
+                </p>
+              </a>
+            </li>
+            @else 
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                <a href="{{ url('enseignant/matieres') }}" class="nav-link @if(Request::is('enseignant/matieres*')) active @endif">
+                  <i class="nav-icon fas fa-align-left"></i>
+                  <p>
+                    Consulter les matières
+                  </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                <a href="{{ url('enseignant/examens') }}" class="nav-link @if(Request::is('enseignant/examens*')) active @endif">
+                  <i class="nav-icon fas fa-align-left"></i>
+                  <p>
+                    Gérer les examens
+                  </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                <a href="{{ url('enseignant/seances') }}" class="nav-link @if(Request::is('enseignant/seances*')) active @endif">
+                  <i class="nav-icon fas fa-align-left"></i>
+                  <p>
+                    Consulter les seances
+                  </p>
                 </a>
               </li>
-            </ul> -->
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        </ul>
+            @endif
+          </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>

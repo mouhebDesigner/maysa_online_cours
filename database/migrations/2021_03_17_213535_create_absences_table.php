@@ -13,7 +13,7 @@ class CreateAbsencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('absences', function (Blueprint $table) {
+        Schema::create('registres', function (Blueprint $table) {
             $table->id();
             $table->foreignId('seance_id')->constrained('seances')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('formateur_id')->constrained('formateurs')->onDelete('cascade')->onUpdate('cascade');

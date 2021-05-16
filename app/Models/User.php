@@ -48,4 +48,9 @@ class User extends Authenticatable
     public function formateur(){
         return $this->hasOne(Formateur::class);
     }
+    
+    public function stagiaire(){
+        return $this->hasOne(Stagiaire::class);
+    }
+
 }

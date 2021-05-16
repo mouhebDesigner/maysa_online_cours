@@ -12,5 +12,9 @@ class Cour extends Model
     public function formateur(){
         return $this->belongsTo(Formateur::class);
     }
+    public function videos(){
+        return $this->hasMany(Video::class);
+    }
+
     
 }

@@ -70,6 +70,9 @@
                                                             Formateur
                                                         </th>
                                                         <th>
+                                                            Videos
+                                                        </th>
+                                                        <th>
                                                             Date de creation
                                                         </th>
                                                         
@@ -88,6 +91,9 @@
                                                             <td>{{ $cour->title }}</td>
                                                             <td>{{ $cour->prix }}</td>
                                                             <td>{{ $cour->formateur->user->nom }} {{ $cour->formateur->user->prenom }}</td>
+                                                            <td>
+                                                                <a href="{{ url('admin/cour/'.$cour->id.'/videos') }}">Lister</a>
+                                                            </td>
                                                             <td>{{ $cour->created_at }}</td>
                                                             <td>{{ $cour->updated_at }}</td>
                                                             <td>
@@ -118,6 +124,9 @@
                                                         
                                                         <th>
                                                             Formateur
+                                                        </th>
+                                                        <th>
+                                                            Videos
                                                         </th>
                                                         <th>
                                                             Date de creation

@@ -57,26 +57,26 @@
                             </div>
                             <nav class="rs-menu rs-menu-close" style="height: 0px;">
                                 <ul class="nav-menu">
-                                    <li class="menu-item-has-children">
+                                    <li class="menu-item-has-children active">
                                         <a href="{{ url('/') }}">Accueil</a>
                                     </li>
                                       
-                                    <li class="menu-item-has-children">
-                                        <a href="#diplomes">Diplômes</a>
+                                    <li class="menu-item-has-children active">
+                                        <a href="{{ url('diplomes') }}">Diplômes</a>
                                     </li>
                                     
-                                    <li class="menu-item-has-children">
-                                        <a href="#cours">Cours</a>
+                                    <li class="menu-item-has-children active">
+                                        <a href="{{ url('cours') }}">Cours</a>
                                     </li>
 
-                                    <li class="menu-item-has-children">
-                                        <a href="#events">Evènement</a>
+                                    <li class="menu-item-has-children active">
+                                        <a href="{{ url('events') }}">Evènement</a>
                                     </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#formateur">Formateur</a>
+                                    <li class="menu-item-has-children active">
+                                        <a href="{{ url('/formateur') }}">Formateur</a>
                                     </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#contact">Contact</a>
+                                    <li class="menu-item-has-children active">
+                                        <a href="{{ url('/contact') }}">Contact</a>
                                     </li>
                                 </ul> <!-- //.nav-menu -->
                             </nav>                                         

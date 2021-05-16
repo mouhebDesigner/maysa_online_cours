@@ -24,11 +24,14 @@ class StagiaireRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
             'nom' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
-            'numtel' => ['required', 'numeric', 'digits:8'],
+            'numtel' => ['required', 'numeric', 'digits:8', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'diplome_id' => 'required',
+            'classe_id' => 'required',
+            'niveau' => 'required',
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
             'date_naissance' => ['required'],
         ];
     }

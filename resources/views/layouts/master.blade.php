@@ -42,6 +42,7 @@
             <script src="https:/oss.maxcdn.com/respond/1.4.2/respond.min.js') }}"></script>
         <![endif]-->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     </head>
     <body class="defult-home">
         <div class="full-width-header header-style1 home1-modifiy">
@@ -51,6 +52,9 @@
             </div>
             @include('includes.footer')
         </div>    
+
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        @yield('script')
         <!-- script files -->
         <script src="assets/js/contact.form.js"></script>
         <!-- modernizr js -->

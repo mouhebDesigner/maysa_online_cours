@@ -88,7 +88,7 @@
                                                             <td>{{ $event->updated_at }}</td>
                                                             <td>
                                                                 <div class="d-flex justify-content-around">
-                                                                    <form action="{{ url('admin/events/'.$event->id) }}">
+                                                                    <form action="{{ url('admin/events/'.$event->id) }}" method="post">
                                                                         @csrf
                                                                         @method('delete')
                                                                         <button type="submit" class="btn-delete" onclick="return confirm('Voules-vous supprimer cet évènement')">

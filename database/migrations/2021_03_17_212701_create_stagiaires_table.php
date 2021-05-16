@@ -15,10 +15,10 @@ class CreateStagiairesTable extends Migration
     {
         Schema::create('stagiaires', function (Blueprint $table) {
             $table->id();
-            $table->string('niveau');
-            $table->enum('type_formation', ['BTS', 'BTP']);
+            $table->enum('niveau', ['Première année', 'Deuxième année']);
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('section_id')->constrained('sections')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('diplome_id')->constrained('diplomes')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('classe_id')->constrained('classes')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

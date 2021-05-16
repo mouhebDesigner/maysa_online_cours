@@ -5631,6 +5631,9 @@ body .modal-backdrop {
   border: 1px solid #dfe9eb;
   border-radius: 5px;
   transition: all 0.3s ease;
+  border: 5px solid #273c66;
+  background: #f9f7f8;
+  box-shadow: 0px 7px 5px -2px #00000061;
 }
 .rs-popular-courses.style1 .courses-item .img-part {
   margin-bottom: 30px;
@@ -12727,6 +12730,18 @@ body .modal-backdrop {
   line-height: 30px;
   font-weight: 600;
   color: #505050;
+}
+.rs-login .noticed .main-part .method-account textarea {
+  margin-bottom: 30px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #505050;
+  width: 100%;
+  display: block;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 5px;
+  box-shadow: 0 0 30px #eee;
 }
 .rs-login .noticed .main-part .method-account input {
   margin-bottom: 30px;

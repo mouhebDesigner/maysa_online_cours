@@ -84,7 +84,7 @@
                                                             <td>{{ $diplome->updated_at }}</td>
                                                             <td>
                                                                 <div class="d-flex justify-content-around">
-                                                                    <form action="{{ url('admin/diplomes/'.$diplome->id) }}">
+                                                                    <form action="{{ url('admin/diplomes/'.$diplome->id) }}" method="post">
                                                                         @csrf
                                                                         @method('delete')
                                                                         <button type="submit" class="btn-delete" onclick="return confirm('Voules-vous supprimer ce diplôme')">

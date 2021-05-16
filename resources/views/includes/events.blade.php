@@ -2,9 +2,18 @@
     <!-- Blog Section Start -->
     <div id="rs-blog" class="rs-blog style2 pt-94 pb-100 md-pt-64 md-pb-70">
         <div class="container">
-            <div class="sec-title mb-60 text-center">
-                <div class="sub-title primary">News Update </div>
-                <h2 class="title mb-0">Latest News &amp; Events</h2>
+            <div class="row y-middle mb-50 md-mb-30">
+                <div class="col-md-6 sm-mb-30">
+                    <div class="sec-title">
+                        <div class="sub-title primary">Les évènements</div>
+                        
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="btn-part text-right sm-text-left">
+                        <a href="{{ url('events') }}" class="readon">Voir tout</a>
+                    </div>
+                </div> 
             </div>
             <div class="row">
                 @foreach(App\Models\Event::all() as $event)

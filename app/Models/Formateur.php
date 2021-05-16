@@ -16,4 +16,12 @@ class Formateur extends Model
     public function cours(){
         return $this->hasMany(Cour::class);
     }
+
+    public function matieres(){
+        return $this->hasMany(Matiere::class);
+    }
+
+    public function seances(){
+        return $this->hasMany(Seance::class);
+    }
 }
