@@ -3,9 +3,9 @@
         <!-- small box -->
         <div class="small-box bg-info">
             <div class="inner">
-            <h3>{{ App\Models\Section::count() }}</h3>
+            <h3>{{ App\Models\Diplome::count() }}</h3>
 
-            <p>Les sections</p>
+            <p>Les diplomes</p>
             </div>
             <div class="icon">
             <i class="ion ion-bag"></i>

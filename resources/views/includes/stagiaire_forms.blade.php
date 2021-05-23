@@ -4,7 +4,7 @@
         <div class="row clearfix">                                    
             <!-- Form Group -->
             <div class="form-group col-lg-12 mb-25">
-                <input type="text" id="nom" name="nom" value="{{ old('nom') }}" class="@error('nom') error_input @enderror" placeholder="Saisir votre nom">
+                <input type="text" id="nom" name="nom" value="{{ old('nom') }}" class="@error('prenom') error_input @enderror" placeholder="Saisir votre nom">
                 @error('nom')
                     <span class="invalid-feedback" role="alert" style="display: inline">
                         <strong class="font-size_strong">{{ $message }}</strong>
@@ -22,7 +22,7 @@
             </div>
             
             <div class="form-group col-lg-12 mb-25">
-                <input type="text" id="email" name="email" value="{{ old('email') }}" class="@error('email') error_input @enderror" placeholder="Saisir votre email">
+                <input type="text" id="email" name="email" value="{{ old('email') }}" class="@error('prenom') error_input @enderror" placeholder="Saisir votre email">
                 @error('email')
                     <span class="invalid-feedback" role="alert" style="display: inline">
                         <strong class="font-size_strong">{{ $message }}</strong>
@@ -30,7 +30,7 @@
                 @enderror
             </div>
             <div class="form-group col-lg-12 mb-25">
-                <input type="password" id="password" name="password" value="{{ old('password') }}" class="@error('password') error_input @enderror" placeholder="Saisir votre mot de passe">
+                <input type="password" id="password" name="password" value="{{ old('password') }}" class="@error('prenom') error_input @enderror" placeholder="Saisir votre mot de passe">
                 @error('password')
                     <span class="invalid-feedback" role="alert" style="display:inline">
                         <strong class="font-size_strong">{{ $message }}</strong>
@@ -38,11 +38,11 @@
                 @enderror
             </div>
             <div class="form-group col-lg-12 mb-25">
-                <input type="password" id="password_confirmation" name="password_confirmation"  class="@error('password') error_input @enderror" placeholder="Confirmer le mot de passe">
+                <input type="password" id="password_confirmation" name="password_confirmation"  class="@error('prenom') error_input @enderror" placeholder="Confirmer le mot de passe">
 
             </div>
             <div class="form-group col-lg-12 mb-25">
-                <input type="number" id="numtel" name="numtel" value="{{ old('numtel') }}" class="@error('numtel') error_input @enderror" placeholder="Saisir votre numtel">
+                <input type="number" id="numtel" name="numtel" value="{{ old('numtel') }}" class="@error('prenom') error_input @enderror" placeholder="Saisir votre numtel">
                 @error('numtel')
                     <span class="invalid-feedback" role="alert" style="display: inline">
                         <strong class="font-size_strong_strong">{{ $message }}</strong>
@@ -50,8 +50,46 @@
                 @enderror
             </div>
             <div class="form-group col-lg-12 mb-25">
-                <input type="text"  onclick="this.type = 'date'" id="date_naissance" name="date_naissance" value="{{ old('date_naissance') }}" class="@error('date_naissance') error_input @enderror" placeholder="Saisir votre date naissance">
+                <input type="text"  onclick="this.type = 'date'" id="date_naissance" name="date_naissance" value="{{ old('date_naissance') }}" class="@error('prenom') error_input @enderror" placeholder="Saisir votre date naissance">
                 @error('date_naissance')
+                    <span class="invalid-feedback" role="alert" style="display: inline">
+                        <strong class="font-size_strong_strong">{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-lg-12 mb-25">
+                <select name="niveau" id="niveau">
+                    <option value="" disabled selected >Choisir votre niveau</option>
+                    <option value="Première année">Première année</option>
+                    <option value="Deuxième année">Deuxième année</option>
+                </select>
+                @error('niveau')
+                    <span class="invalid-feedback" role="alert" style="display: inline">
+                        <strong class="font-size_strong_strong">{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-lg-12 mb-25">
+                <select name="diplome_id" id="">
+                    <option value="" selected disbaled>Choisir votre diplome</option>
+                    @foreach(App\Models\Diplome::all()  as $diplome)
+                        <option value="{{ $diplome->id }}">{{ $diplome->titre }}</option>
+                    @endforeach
+                </select>
+                @error('diplome_id')
+                    <span class="invalid-feedback" role="alert" style="display: inline">
+                        <strong class="font-size_strong_strong">{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-lg-12 mb-25">
+                <select name="classe_id" id="">
+                    <option value="" selected disbaled>Choisir votre classe</option>
+                    @foreach(App\Models\Classe::all()  as $classe)
+                        <option value="{{ $classe->id }}">{{ $classe->nom }}</option>
+                    @endforeach
+                </select>
+                @error('classe_id')
                     <span class="invalid-feedback" role="alert" style="display: inline">
                         <strong class="font-size_strong_strong">{{ $message }}</strong>
                     </span>

@@ -21,10 +21,24 @@
                             <!-- <a href="{{ url('login') }}">Se connecter</a>/ -->
                         </li>
                         <li class="btn-part">
-                            <a class="apply-btn" href="{{ url('login') }}">
-                            <i class="fa fa-sign-in"></i>
-                            
-                            Se connecter</a>
+                            @guest
+                                <a class="apply-btn" href="{{ url('login') }}">
+                                    <i class="fa fa-sign-in"></i>Se connecter
+                                </a>
+                            @else 
+                                <a class="" href="{{ url('profile') }}">
+                                    <i class="fa fa-sign-in"></i>{{ Auth::user()->nom }} {{ Auth::user()->prenom }}
+                                </a>
+                                <a class="apply-btn" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Déconnecter') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            @endif
 
                         </li>
                     </ul>
@@ -57,13 +71,29 @@
                             </div>
                             <nav class="rs-menu rs-menu-close" style="height: 0px;">
                                 <ul class="nav-menu">
+
+                                    @guest 
                                     <li class="menu-item-has-children active">
                                         <a href="{{ url('/') }}">Accueil</a>
                                     </li>
-                                      
+                                    @else 
+                                    <li class="menu-item-has-children active">
+                                        <a href="{{ url('/home') }}">Accueil</a>
+                                    </li>
+
+                                    @endif
+                                    @guest 
                                     <li class="menu-item-has-children active">
                                         <a href="{{ url('diplomes') }}">Diplômes</a>
                                     </li>
+                                    @else 
+                                    <li class="menu-item-has-children active">
+                                        <a href="{{ url('matieres') }}">Matiéres</a>
+                                    </li>
+                                    <li class="menu-item-has-children active">
+                                        <a href="{{ url('notes') }}">Notes</a>
+                                    </li>
+                                    @endif
                                     
                                     <li class="menu-item-has-children active">
                                         <a href="{{ url('cours') }}">Cours</a>

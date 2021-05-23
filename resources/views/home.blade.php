@@ -1,23 +1,55 @@
-@extends('layouts.app')
+@extends('layouts.master')
+
+@section('includes')
+    @include('includes.header')
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <div id="rs-banner" class="rs-banner style1">
+        <div class="container">
+            @guest 
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+            <div class="banner-content text-center">
+                <h1 
+                class="banner-title capitalize wow fadeInLeft" 
+                data-wow-delay="300ms" 
+                data-wow-duration="3000ms" 
+                style="visibility: visible; animation-duration: 3000ms; animation-delay: 300ms; animation-name: fadeInLeft;">Bienvenue a notre centre de formation </h1>
+                <div class="desc mb-35 wow wow fadeInRight" data-wow-delay="900ms" data-wow-duration="3000ms" style="visibility: visible; animation-duration: 3000ms; animation-delay: 900ms; animation-name: fadeInRight;">Rejoinez nous maintenant<br>Inscrivez-vous comme : </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="banner-btn wow fadeInUp" data-wow-delay="1500ms" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-delay: 1500ms; animation-name: fadeInUp;">
+                            <a class="readon banner-style" href="{{ url('register/formateur') }}">Formateur</a>
                         </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+                    </div>
+                    <div class="col-md-6">
+                        <div class="banner-btn wow fadeInUp" data-wow-delay="1500ms" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-delay: 1500ms; animation-name: fadeInUp;">
+                            <a class="readon banner-style" href="{{ url('register/stagiaire') }}">Stagiaire</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            @else 
+            <div class="banner-content text-center">
+                <h1 
+                class="banner-title capitalize wow fadeInLeft" 
+                data-wow-delay="300ms" 
+                data-wow-duration="3000ms" 
+                style="visibility: visible; animation-duration: 3000ms; animation-delay: 300ms; animation-name: fadeInLeft;">Bienvenue a votre espace au centre de formation </h1>
+                <div class="desc mb-35 wow wow fadeInRight" data-wow-delay="900ms" data-wow-duration="3000ms" style="visibility: visible; animation-duration: 3000ms; animation-delay: 900ms; animation-name: fadeInRight;"></div>
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <div class="banner-btn wow fadeInUp" data-wow-delay="1500ms" data-wow-duration="2000ms" style="visibility: visible; animation-duration: 2000ms; animation-delay: 1500ms; animation-name: fadeInUp;">
+                            <a class="readon banner-style" href="{{ url('matieres') }}">Lister vos matières</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
         </div>
     </div>
-</div>
+    @include('includes.diplomes')
+    @include('includes.cours')
+    @include('includes.events')
 @endsection
+

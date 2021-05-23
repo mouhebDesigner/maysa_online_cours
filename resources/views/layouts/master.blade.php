@@ -35,6 +35,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('front/assets/css/rs-spacing.css') }}">
         <!-- style css -->
         <link rel="stylesheet" type="text/css" href="{{ asset('front/style.css') }}"> <!-- This stylesheet dynamically changed from style.less -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('front/main.css') }}"> <!-- This stylesheet dynamically changed from style.less -->
         <!-- responsive css -->
         <link rel="stylesheet" type="text/css" href="{{ asset('front/assets/css/responsive.css') }}">
         <!--[if lt IE 9]>

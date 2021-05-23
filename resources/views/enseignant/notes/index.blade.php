@@ -14,7 +14,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Liste de matieres</h1>
+                            <h1 class="m-0">Liste des notes</h1>
                         </div><!-- /.col -->
                        
                     </div>
@@ -22,7 +22,8 @@
             </div>
             <div class="content">
                 <div class="container-fluid">
-                @include('admin.includes.error-message')
+                    @include('admin.includes.error-message')
+                    @include('admin.includes.statistique')
 
                     <div class="row">
                         <div class="col-12">
@@ -40,14 +41,16 @@
                                             <div class="d-flex justify-content-between">
                                                 <div id="example1_filter" class="dataTables_filter">
                                                     <label>
-                                                        Search:
+                                                        Chercher:
                                                         <input 
                                                         type="search" class="form-control form-control-sm" 
                                                         placeholder="" 
                                                         aria-controls="example1">
                                                     </label>
                                                 </div>
-                                               
+                                                <a href="{{ route('notes.create', ['matiere_id' => $matiere_id]) }}">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -57,13 +60,10 @@
                                                 <thead>
                                                     <tr>
                                                         <th>
-                                                            titre
+                                                            Elève
                                                         </th>
                                                         <th>
-                                                            diplôme
-                                                        </th>
-                                                        <th>
-                                                            niveau
+                                                            Note
                                                         </th>
                                                         <th>
                                                             date de creation
@@ -75,42 +75,47 @@
                                                         <th>
                                                             Actions
                                                         </th>
-
                                                     </tr>
 
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($matieres as $matiere)
+                                                    @foreach($notes as $note)
                                                         <tr>
-                                                            <td>{{ $matiere->titre }}</td>
-                                                            <td>{{ $matiere->diplome->titre }}</td>
-                                                            <td>{{ $matiere->niveau }}</td>
-                                                            <td>{{ $matiere->created_at }}</td>
-                                                            <td>{{ $matiere->updated_at }}</td>
+                                                            <td>{{ $note->stagiaire->user->nom }}</td>
+                                                            <td>{{ $note->note }}</td>
+                                                            <td>{{ $note->created_at }}</td>
+                                                            <td>{{ $note->updated_at }}</td>
                                                             <td>
                                                                 <div class="d-flex justify-content-around">
-                                                                    <a class="btn btn-primary" href="{{ url('enseignant/matiere/'.$matiere->id.'/notes') }}">
-                                                                        Notes
+                                                                    <form action="{{ url('enseignant/notes/'.$note->id) }}" method="post">
+                                                                        @csrf
+                                                                        @method('delete')
+                                                                        <button type="submit" class="btn-delete" onclick="return confirm('Voules-vous supprimer cette note')">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                    <a href="{{ route('notes.edit', ['matiere_id' => $matiere_id, 'note' => $note->id]) }}" onclick="return confirm('Voules-vous modifier cette note')">
+                                                                        <i class="fa fa-edit"></i>
                                                                     </a>
+                                                                    
+
                                                                 </div>
                                                             </td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
                                                 <tfoot>
-                                                    <tr>
+                                                     <tr>
                                                         <th>
-                                                            titre
+                                                            Elève
                                                         </th>
                                                         <th>
-                                                            diplôme
+                                                            Note
                                                         </th>
                                                         <th>
-                                                            niveau
+                                                            date de creation
                                                         </th>
-                                                        <th>
-                                                            date de création
-                                                        </th>
+                                                        
                                                         <th>
                                                             date de modification
                                                         </th>
@@ -121,6 +126,7 @@
                                                 </tfoot>
                                             </table>
                                         </div>
+                                        {{ $notes->links() }}
                                     </div>
                                 </div>
                             <!-- /.card-body -->
