@@ -28,11 +28,11 @@ class StagiaireRequest extends FormRequest
             'prenom' => ['required', 'string', 'max:255'],
             'numtel' => ['required', 'numeric', 'digits:8', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'date_naissance' => ['required'],
             'diplome_id' => 'required',
             'classe_id' => 'required',
             'niveau' => 'required',
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'date_naissance' => ['required'],
         ];
     }
 }

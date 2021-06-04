@@ -100,6 +100,17 @@
                                                                <a href="{{ url('enseignant/seance/'.$seance->id.'/registre') }}" class="btn btn-primary">
                                                                     Registre d'appel
                                                                </a>
+                                                               @if($seance->presence != 1)
+
+                                                                <a href="{{ url('enseignant/seance/'.$seance->id.'/pointage') }}" class="btn btn-primary">
+                                                                        Pointage
+                                                                </a>
+                                                               @else 
+
+                                                                <button disabled href="{{ url('enseignant/seance/'.$seance->id.'/pointage') }}" class="btn btn-primary">
+                                                                        Pointage <i class="fa fa-check"></i>
+                                                                </button>
+                                                               @endif
                                                             </td>
                                                         </tr>
                                                     @endforeach

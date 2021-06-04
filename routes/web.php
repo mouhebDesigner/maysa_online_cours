@@ -68,12 +68,14 @@ Route::prefix('admin')->group(function () {
 Route::prefix('enseignant')->group(function () {
     Route::middleware(['auth'])->group(function () {
         //
+
         Route::resource('examens', ExamenController::class);
         Route::resource('seances', SeanceController_enseignant::class);
         Route::resource('matieres', matiere_enseignant::class);
         Route::get('absences/{stagiaire_id}/{seance_id}', [RegistreController::class, 'absence']);
         Route::get('presences/{stagiaire_id}/{seance_id}', [AbsenceController::class, 'absence']);
         Route::get('seance/{matiere_id}/registre', [RegistreController::class, 'index']);
+        Route::get('seance/{seance_id}/pointage', [RegistreController::class, 'pointage']);
         Route::get('/examen/{examen_id}/stagiaires', [ExamenController::class, 'stagiaires']);
         Route::prefix('matiere/{matiere_id}')->group(function(){
             Route::resource('notes', NoteController::class)->only('index', 'store', 'create', 'edit')->middleware('auth');

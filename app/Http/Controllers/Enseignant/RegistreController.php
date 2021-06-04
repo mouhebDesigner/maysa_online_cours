@@ -35,4 +35,16 @@ class RegistreController extends Controller
 
         return redirect()->back()->with('success', $name.' a été enregistré comme absent');
     }
+
+    public function pointage($seance_id){
+        $seance = Seance::find($seance_id);
+
+        $seance->presence = 1;
+
+        $seance->save();
+
+        return redirect()->back()->with('success', 'Votre pointage a été enregistré avec succée');
+    }
 }
+
+
