@@ -13,13 +13,13 @@
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 footer-widget md-mb-50">
-                    <h4 class="widget-title">Instructeur</h4>
+                    <h4 class="widget-title">Menu</h4>
                     <ul class="site-map">
-                        <li><a href="#">All Courses</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Genarel Education</a></li>
-                        <li><a href="#">Digital Marketing</a></li>
-                        <li><a href="#">Web Design</a></li>
+                        <li><a href="{{ url('/') }}">Acceuil</a></li>
+                        <li><a href="{{ url('/diplomes') }}">Diplôme</a></li>
+                        <li><a href="{{ url('cours') }}">Cours</a></li>
+                        <li><a href="{{  url('events') }}">Evènements</a></li>
+                        <li><a href="{{ url('formateurs') }}">Formateurs</a></li>
                     </ul>
                 </div>
                 
@@ -28,20 +28,19 @@
                     <ul class="address-widget">
                         <li>
                             <i class="flaticon-location"></i>
-                            <div class="desc">503 Old Buffalo Street Northwest #205 New York-3087</div>
+                            <div class="desc">Rue Mhajba Hamma Gabes</div>
                         </li>
                         <li>
                             <i class="flaticon-call"></i>
                             <div class="desc">
-                                <a href="tel:(123)-456-7890">(123)-456-7890</a> , 
-                                <a href="tel:(123)-456-7890">(123)-456-7890</a>
+                                <a href="tel:(123)-456-7890">+216 25 709 010</a> , 
+                                <a href="tel:(123)-456-7890">+216 53 724 222</a>
                             </div>
                         </li>
                         <li>
                             <i class="flaticon-email"></i>
                             <div class="desc">
-                                <a href="mailto:infoname@gmail.com">infoname@gmail.com</a> , 
-                                <a href="#">www.yourname.com</a>
+                                <a href="mailto:infoname@gmail.com">jargon@gmail.com</a> , 
                             </div>
                         </li>
                     </ul>

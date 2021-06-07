@@ -23,6 +23,9 @@ class FormateurController extends Controller
         $user->grade = "formateur";
         $user->date_naissance = $request->date_naissance;
 
+        if($request->hasFile('photo')){
+            $user->photo = $request->photo->store('images');
+        }
         $user->save();
 
         $formateur = new Formateur();

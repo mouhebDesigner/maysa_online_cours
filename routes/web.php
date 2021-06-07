@@ -1,8 +1,10 @@
 <?php
 
 use App\Models\Note;
+use App\Models\User;
 use App\Models\Classe;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FormateurController;
 use App\Http\Controllers\StagiaireController;
@@ -23,10 +25,13 @@ use App\Http\Controllers\CourController as CourController_client;
 use App\Http\Controllers\EventController as EventController_client;
 use App\Http\Controllers\Admin\SeanceController as SeanceController_admin;
 use App\Http\Controllers\MatiereController as Matierecontroller_stagiaire;
+use App\Http\Controllers\Admin\ContactController as ContactController_admin;
 use App\Http\Controllers\Enseignant\MatiereController as matiere_enseignant;
 use App\Http\Controllers\Admin\FormateurController as FormateurController_admin;
 use App\Http\Controllers\Admin\StagiaireController as StagiaireController_admin;
 use App\Http\Controllers\Enseignant\SeanceController as SeanceController_enseignant;
+   
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,10 +47,15 @@ use App\Http\Controllers\Enseignant\SeanceController as SeanceController_enseign
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('formateurs', function(){
+    $formateurs = User::where('grade', 'formateur')->get();
+    return view('formateurs', compact('formateurs'));
+});
 Route::prefix('admin')->group(function () {
     Route::middleware(['auth'])->group(function () {
         //
+        Route::resource('contacts', ContactController_admin::class);
+
         Route::resource('diplomes', DiplomeController::class);
         Route::resource('events', EventController::class);
         Route::resource('cours', CourController::class);
@@ -91,9 +101,10 @@ Route::get('/classe_list/{diplome_id}', function($diplome_id){
 Route::resource('cours', CourController_client::class);
 Route::resource('events', EventController_client::class);
 
-Route::get('contact', function(){
-    return view('contact');
-})->name('contact');
+
+
+Route::resource('contact', ContactController::class);
+
 // register forms 
 Route::get('register/stagiaire', function(){
     return view('auth.register_stagiaire');
@@ -108,6 +119,8 @@ Route::put('profile', [ProfileController::class, 'update']);
 Route::get('profile', function(){
     return view('profile');
 })->middleware('auth');
+
+
 
 Route::get('matieres', [MatiereController_stagiaire::class, 'index']);
 Route::get('notes', function(){

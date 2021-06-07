@@ -113,3 +113,33 @@ select{
 input[type=file]{
     display: none;
 }
+.formateur{
+    width: 90%;
+    box-shadow: 0px 0px 4px 1px #524949;
+}
+
+.formateur img{
+    width: 100%;
+}
+
+.formateur .name{
+    width: 100%;
+    background: #21a7d0;
+    text-align: center;
+    color: white;
+
+}
+
+.name p{
+    padding: 0px;
+    margin: 0;
+    color: #273c66;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 1.5rem;
+}
+
+.name p span{
+    color: #fff5f5;
+    font-size: 1.1rem;
+}

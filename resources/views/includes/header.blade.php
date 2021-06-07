@@ -7,11 +7,11 @@
                     <ul class="topbar-contact">
                         <li>
                             <i class="flaticon-email"></i>
-                            <a href="mailto:support@rstheme.com">example@gmail.com</a>
+                            <a href="mailto:support@rstheme.com">jargon@gmail.com</a>
                         </li>
                         <li>
                             <i class="flaticon-location"></i>
-                            Rue habib bourguiba Gabes
+                           Rue Mhajba 
                         </li>
                     </ul>
                 </div>
@@ -103,7 +103,7 @@
                                         <a href="{{ url('events') }}">Evènement</a>
                                     </li>
                                     <li class="menu-item-has-children active">
-                                        <a href="{{ url('/formateur') }}">Formateur</a>
+                                        <a href="{{ url('/formateurs') }}">Formateur</a>
                                     </li>
                                     <li class="menu-item-has-children active">
                                         <a href="{{ url('/contact') }}">Contact</a>

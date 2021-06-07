@@ -1,5 +1,5 @@
 <div class="styled-form">
-    <form  method="post" action="{{ url('formateur') }}">         
+    <form  method="post" action="{{ url('formateur') }}" enctype="multipart/form-data">         
         @csrf
         <div class="row clearfix">                                    
             <!-- Form Group -->
@@ -63,6 +63,15 @@
                 @error('specialite')
                     <span class="invalid-feedback" role="alert" style="display:inline">
                         <strong class="font-size_strong">{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group col-lg-12 mb-25">
+                <label for="photo" class="photo_label">Télécharger photo</label>
+                <input type="file" id="photo" name="photo" value="{{ old('photo') }}" class="input_file @error('photo') error_input @enderror">
+                @error('photo')
+                    <span class="invalid-feedback" role="alert" style="display: inline">
+                        <strong class="font-size_strong_strong">{{ $message }}</strong>
                     </span>
                 @enderror
             </div>

@@ -140,11 +140,10 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{ url('admin/contacts') }}" class="nav-link @if(Request::is('contacts*')) active @endif">
+              <a href="{{ url('admin/contacts') }}" class="nav-link @if(Request::is('admin/contacts*')) active @endif">
                 <i class="nav-icon fas fa-envelope-open-text"></i>
                 <p>
                   Gérer les contacts
-                  
                 </p>
               </a>
             </li>
