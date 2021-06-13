@@ -19,7 +19,7 @@ class StagiaireController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->numtel = $request->numtel;
-        $user->grade = "admin";
+        $user->grade = "stagiaire";
         $user->date_naissance = $request->date_naissance;
 
         if($request->hasFile('photo')){

@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('grade', ['admin', 'formateur', 'stagiaire', 'eleve']);
+            $table->enum('grade', ['admin', 'formateur', 'stagiaire']);
             $table->biginteger('numtel');
             $table->date('date_naissance');
             $table->string('photo')->nullable();
