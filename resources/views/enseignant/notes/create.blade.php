@@ -26,9 +26,9 @@
                                 <div class="row">
                                     <div class="col-md-8 offset-md-2">
                                         <div class="form-group">
-                                            <label for="stagiaire_id">Elèves</label>
+                                            <label for="stagiaire_id">Stagiaire</label>
                                             <select name="stagiaire_id" id="stagiaire_id" class="form-control">
-                                                <option value="" selected disbaled>Choisir élève</option>
+                                                <option value="" selected disbaled>Choisir stagiaire</option>
                                                 @foreach($stagiaires as $stagiaire)
                                                     @if(!App\Models\Note::where('stagiaire_id', $stagiaire->id)->where('matiere_id', $matiere_id)->first())
                                                     <option value="{{ $stagiaire->id }}" @if(old('stagiaire_id') == $stagiaire->id) selected @endif>{{ $stagiaire->user->nom }} {{ $stagiaire->user->prenom }}</option>

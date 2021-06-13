@@ -75,10 +75,15 @@ Route::prefix('admin')->group(function () {
         Route::resource('videos', VideoController::class)->only(['update', 'destroy', 'edit']);
     });
 });
-Route::prefix('enseignant')->group(function () {
-    Route::middleware(['auth'])->group(function () {
-        //
 
+Route::prefix('enseignant')->group(function () {
+
+    Route::middleware(['auth'])->group(function () {
+        Route::get('profile', function(){
+            return view('enseignant.profile');
+        });
+        //
+    
         Route::resource('examens', ExamenController::class);
         Route::resource('seances', SeanceController_enseignant::class);
         Route::resource('matieres', matiere_enseignant::class);

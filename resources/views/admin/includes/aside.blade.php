@@ -13,7 +13,13 @@
           <!-- <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> -->
         </div>
         <div class="info">
+          @if(Auth::user()->grade == "formateur")
+
+          <a href="{{ url('enseignant/profile') }}" class="d-block">{{ Auth::user()->nom  }} {{ Auth::user()->prenom }} </a>
+          @else 
           <a href="#" class="d-block">{{ Auth::user()->nom  }} {{ Auth::user()->prenom }} </a>
+
+          @endif
         </div>
       </div>
 
