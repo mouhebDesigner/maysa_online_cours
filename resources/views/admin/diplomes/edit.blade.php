@@ -32,6 +32,22 @@
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
+                            <div class="form-group">
+                                    <label for="image">Image de diplôme</label>
+                                    <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="image" class="custom-file-input" id="image">
+                                        <label class="custom-file-label" for="image">Choisir image</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Télécharger</span>
+                                    </div>
+                                    </div>
+                                    @error('image')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
                             </div>
                             <!-- /.card-body -->
 
