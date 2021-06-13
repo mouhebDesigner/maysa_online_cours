@@ -16,6 +16,7 @@ class CreateDiplomesTable extends Migration
         Schema::create('diplomes', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
+            $table->string('image');
             $table->timestamps();
         });
     }

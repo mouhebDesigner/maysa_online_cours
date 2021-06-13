@@ -24,7 +24,8 @@ class DiplomeRequest extends FormRequest
     public function rules()
     {
         return [
-            'titre' => "required"
+            'titre' => "required",
+            'image' => "required | image"
         ];
     }
 }

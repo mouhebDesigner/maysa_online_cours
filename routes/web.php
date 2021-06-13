@@ -44,7 +44,9 @@ use App\Http\Controllers\Enseignant\ProfileController as ProfileController_ensei
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('diplomes', function(){
+    return view('diplomes');
+});
 Route::get('/', function () {
     return view('welcome');
 });

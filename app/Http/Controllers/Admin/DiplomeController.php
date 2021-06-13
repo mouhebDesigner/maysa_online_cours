@@ -42,6 +42,7 @@ class DiplomeController extends Controller
         $diplome = new Diplome();
 
         $diplome->titre = $request->titre;
+        $diplome->image = $request->image->store('images');
 
         $diplome->save();
 
@@ -84,6 +85,7 @@ class DiplomeController extends Controller
         $diplome =  Diplome::find($id);
 
         $diplome->titre = $request->titre;
+        $diplome->image = $request->image->store('images');
 
         $diplome->save();
 

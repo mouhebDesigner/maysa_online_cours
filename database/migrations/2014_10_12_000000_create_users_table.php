@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->enum('grade', ['admin', 'formateur', 'stagiaire']);
             $table->biginteger('numtel');
-            $table->date('date_naissance');
+            $table->date('date_naissance')->nullable();
             $table->string('photo')->nullable();
             $table->boolean('approuver')->nullable();
             $table->rememberToken();
