@@ -30,6 +30,7 @@ use App\Http\Controllers\Enseignant\MatiereController as matiere_enseignant;
 use App\Http\Controllers\Admin\FormateurController as FormateurController_admin;
 use App\Http\Controllers\Admin\StagiaireController as StagiaireController_admin;
 use App\Http\Controllers\Enseignant\SeanceController as SeanceController_enseignant;
+use App\Http\Controllers\Enseignant\ProfileController as ProfileController_enseignant;
    
 
 
@@ -79,10 +80,8 @@ Route::prefix('admin')->group(function () {
 Route::prefix('enseignant')->group(function () {
 
     Route::middleware(['auth'])->group(function () {
-        Route::get('profile', function(){
-            return view('enseignant.profile');
-        });
-        //
+    Route::resource('profile', ProfileController_enseignant::class);
+        
     
         Route::resource('examens', ExamenController::class);
         Route::resource('seances', SeanceController_enseignant::class);
