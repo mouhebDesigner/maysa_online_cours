@@ -38,19 +38,15 @@
                                         <div class="col-md-12">
                                             <div class="d-flex justify-content-between">
                                                 <div id="example1_filter" class="dataTables_filter">
-                                                    <label>
-                                                        Search:
-                                                        <input 
-                                                        type="search" class="form-control form-control-sm" 
-                                                        placeholder="" 
-                                                        aria-controls="example1">
-                                                    </label>
+                                                   
                                                 </div>
+                                                @if(Auth::user()->grade == "admin")
                                                 <a href="{{ url('admin/stagiaires/create') }}">
                                                     <button class="btn-icon">
                                                         <i class="fa fa-plus"></i>
                                                     </button>
                                                 </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -81,9 +77,11 @@
                                                         <th>
                                                             date de modification
                                                         </th>
+                                                        @if(Auth::user()->grade == "admin")
                                                         <th>
                                                             Actions
                                                         </th>
+                                                        @endif
                                                     </tr>
 
                                                 </thead>
@@ -97,53 +95,27 @@
                                                             <td>{{ $stagiaire->stagiaire->type_formation }}</td>
                                                             <td>{{ $stagiaire->created_at }}</td>
                                                             <td>{{ $stagiaire->updated_at }}</td>
-                                                            <td>
-                                                                <div class="d-flex justify-content-around">
-                                                                    <form action="{{ url('admin/stagiaires/'.$stagiaire->id) }}" method="post">
-                                                                        @csrf
-                                                                        @method('delete')
-                                                                        <button type="submit" class="btn-delete" onclick="return confirm('Voules-vous supprimer ce stagiaire')">
-                                                                            <i class="fa fa-trash"></i>
-                                                                        </button>
-                                                                    </form>
-                                                                    <a href="{{ url('admin/stagiaires/'.$stagiaire->id.'/edit') }}" onclick="return confirm('Voules-vous modifier ce stagiaire')">
-                                                                        <i class="fa fa-edit"></i>
-                                                                    </a>
-                                                                </div>
-                                                            </td>
+                                                            @if(Auth::user()->grade == "admin")
+
+                                                                <td>
+                                                                    <div class="d-flex justify-content-around">
+                                                                        <form action="{{ url('admin/stagiaires/'.$stagiaire->id) }}" method="post">
+                                                                            @csrf
+                                                                            @method('delete')
+                                                                            <button type="submit" class="btn-delete" onclick="return confirm('Voules-vous supprimer ce stagiaire')">
+                                                                                <i class="fa fa-trash"></i>
+                                                                            </button>
+                                                                        </form>
+                                                                        <a href="{{ url('admin/stagiaires/'.$stagiaire->id.'/edit') }}" onclick="return confirm('Voules-vous modifier ce stagiaire')">
+                                                                            <i class="fa fa-edit"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                            @endif
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <th>
-                                                            nom
-                                                        </th>
-                                                        <th>
-                                                            prénom
-                                                        </th>
-                                                        <th>
-                                                            email
-                                                        </th>
-                                                        <th>
-                                                            niveau
-                                                        </th>
-                                                        <th>
-                                                            formation
-                                                        </th>
-                                                        <th>
-                                                            date de creation
-                                                        </th>
-                                                        
-                                                        <th>
-                                                            date de modification
-                                                        </th>
-                                                        <th>
-                                                            Actions
-                                                        </th>
-
-                                                    </tr>
-                                                </tfoot>
+                                              
                                             </table>
                                         </div>
                                     </div>

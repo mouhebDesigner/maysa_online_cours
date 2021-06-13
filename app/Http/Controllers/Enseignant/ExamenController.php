@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Enseignant;
 
+use App\Models\User;
 use App\Models\Examen;
+use App\Models\Matiere;
+use App\Models\Stagiaire;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ExamenRequest;
@@ -23,9 +26,23 @@ class ExamenController extends Controller
 
     public function stagiaires($examen_id){
 
-        
+        $matiere_id = Examen::find($examen_id)->matiere_id;
+        $diplome_id = Matiere::find($matiere_id)->diplome_id;
 
-        return view('enseignant.abscences.index', compact('stagiaires', 'seance_id'));
+
+        $users = Stagiaire::where('diplome_id', $diplome_id)->get('user_id');
+
+        $ids = [];
+
+        foreach($users as $id){
+            array_push($ids, $id->user_id);
+        }
+
+        $stagiaires = User::whereIn('id', $ids)->paginate(10);
+
+        
+        return view('admin.stagiaires.index', compact('stagiaires', 'examen_id'));
+
     }
 
     /**
@@ -54,7 +71,7 @@ class ExamenController extends Controller
         
         $examen->save();
 
-        return redirect('admin/examens')->with('added', 'L\'examen a été ajouté avec succés');
+        return redirect('enseignant/examens')->with('added', 'L\'examen a été ajouté avec succés');
     }
 
     /**
@@ -98,7 +115,7 @@ class ExamenController extends Controller
 
         $examen->save();
 
-        return redirect('admin/examens')->with('updated', 'L\'examen a été modifié avec succés');
+        return redirect('enseignant/examens')->with('updated', 'L\'examen a été modifié avec succés');
     }
 
     /**
@@ -110,7 +127,7 @@ class ExamenController extends Controller
     public function destroy($id)
     {
         Examen::find($id)->delete();
-        return redirect('admin/examens')->with('deleted', 'L\'examen a été supprimer avec succés');
+        return redirect('enseignant/examens')->with('deleted', 'L\'examen a été supprimer avec succés');
         
     }
 }

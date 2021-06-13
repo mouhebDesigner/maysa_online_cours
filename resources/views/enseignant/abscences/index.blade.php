@@ -126,13 +126,7 @@
 @endsection
 
 @section('script')
-    <script>
-        $("#absent").on('click', function(){
-            var stagiaire_id = "<?php echo $stagiaire_id; ?>";
-            var seance_id = "<?php echo $seance_id; ?>";
-           
-        });
-    </script>
+  
 
     <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>

@@ -131,15 +131,6 @@
             </li>
 
             <li class="nav-item">
-              <a href="{{ url('admin/abscences') }}" class="nav-link @if(Request::is('admin/abscences*')) active @endif">
-                <i class="nav-icon fas fa-clipboard-list"></i>
-                <p>
-                  Gérer les abscences
-                  
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="{{ url('admin/contacts') }}" class="nav-link @if(Request::is('admin/contacts*')) active @endif">
                 <i class="nav-icon fas fa-envelope-open-text"></i>
                 <p>
